@@ -1,0 +1,33 @@
+﻿@using WebApplication1.DefaultData
+@model List<Student>
+
+<div class="row text-center justify-content-center">
+    <div class="col-4">
+        <h3>Öğrenciler</h3>
+        <table class="table table-success">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Sınıfı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Student student in Model)
+                {
+                    <tr>
+                        <td>@student.ID</td>
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                        @* <td>@student.ClassRoom.ClassName</td> *@
+                        @{
+                            ClassRoom c = Data.Classrooms.FirstOrDefault(x => x.ID.Equals(student.ClassRoomID));
+                        }
+                        <td>@c.ClassName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

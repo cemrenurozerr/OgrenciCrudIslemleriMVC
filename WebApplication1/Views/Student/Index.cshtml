@@ -1,0 +1,36 @@
+﻿@model List<Student>
+@if (TempData["result"]!=null)
+{
+	<h5 class="alert alert-info">@TempData["result"]</h5>
+}
+<div class="row justify-content-center text-center">
+	<div class="col-5">
+		<h2>Öğrenci Listesi</h2>
+		<a class="btn btn-success" asp-action="AddStudent">Yeni Öğrenci Oluştur</a>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Ad</th>
+					<th>Soyad</th>
+					<th>Sınıf Id</th>
+					<th>Günceller</th>
+					<th>Sil</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(Student student in Model)
+				{
+					<tr>
+						<td>@student.ID</td>
+						<td>@student.FirstName</td>
+						<td>@student.LastName</td>
+						<td>@student.ClassRoomID</td>
+						<td><a class="btn btn-warning" asp-action="UpdateStudent" asp-route-id="@student.ID">Güncelle</a></td>
+						<td><a class="btn btn-danger" asp-action="DeleteStudent" asp-route-id="@student.ID">Sil</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

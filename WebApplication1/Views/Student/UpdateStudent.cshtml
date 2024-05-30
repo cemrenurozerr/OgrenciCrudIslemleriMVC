@@ -1,0 +1,30 @@
+﻿@model StudentVM
+<div class="row text-center justify-content-center">
+	<div class="col-6">
+		<h2>Öğrenci Güncelleme Formu</h2>
+		<hr />
+		<form asp-action="UpdateStudent" method="post">
+			<table class="table table-bordered">
+				<tr>
+					<td><label asp-for="Student.FirstName">Adı</label></td>
+					<td><input type="text" asp-for="Student.FirstName" /></td>
+				</tr>
+				<tr>
+					<td><label asp-for="Student.LastName">Soyadı</label></td>
+					<td><input type="text" asp-for="Student.LastName" /></td>
+				</tr>
+				<tr>
+					<td><label asp-for="Student.ClassRoomID">Sınıfı</label></td>
+					<td>
+						@Html.DropDownListFor(x=>x.Student.ClassRoomID,Model.ClassRoomsForDropDown,new{@class="form-select"})
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" class="btn btn-outline-success" value="Güncelle"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>

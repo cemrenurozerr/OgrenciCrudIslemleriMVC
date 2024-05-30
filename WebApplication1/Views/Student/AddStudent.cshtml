@@ -1,0 +1,25 @@
+﻿@model Student
+<h1 class="text-center">Öğrenci Ekle</h1>
+<table>
+	<form asp-action="AddStudent" method="post">
+	<tr>
+		<td>ID</td>
+		<td><input type="text" asp-for="ID" /></td>
+	</tr>
+	<tr>
+		<td>Ad</td>
+		<td><input type="text" asp-for="FirstName" /></td>
+	</tr>
+	<tr>
+		<td>Soyad</td>
+		<td><input type="text" asp-for="LastName" /></td>
+	</tr>
+	<tr>
+		<td>Sınıf Id</td>
+		<td><input type="text" asp-for="ClassRoomID" /></td>
+	</tr>
+	<tr>
+		<td><button type="submit" class="btn btn-success">Kaydet</button></td>
+	</tr>
+	</form>
+</table>

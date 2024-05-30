@@ -1,0 +1,27 @@
+﻿@model List<ClassRoom>
+<div class="row text-center justify-content-center">
+    <div class="col-8">
+        <h2>Sınıflar</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sınıf Adı</th>
+                    <th>Öğrencileri Göster</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ClassRoom classRoom in Model)
+                {
+                    <tr>
+                        <td>@classRoom.ID</td>
+                        <td>@classRoom.ClassName</td>
+                        <td><a class="btn btn-outline-warning" asp-action="GetStudents" asp-route-id="@classRoom.ID">Öğrencileri Göster</a></td>
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+</div>
